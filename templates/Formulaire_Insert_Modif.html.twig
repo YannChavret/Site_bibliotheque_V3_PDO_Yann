@@ -3,7 +3,7 @@
 {% block container %}
 
 {% if Nom %}
-  {% set action = 'Traitement_Modification.php' %}
+  {% set action = 'Traitement_Modification.php?id=' ~ ID  %}
   {% set titre = 'Modifier un livre' %}
 {% else %}
   {% set action = 'Traitement_Insertion.php' %}

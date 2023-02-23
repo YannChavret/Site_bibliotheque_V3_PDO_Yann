@@ -3,7 +3,6 @@ session_start();
 require_once "twig.php";
 include("page_de_connexion.php");
 
-
 echo $_GET['id'];
 
 if (isset($_POST["ident"]) && !empty($_POST["ident"])) {

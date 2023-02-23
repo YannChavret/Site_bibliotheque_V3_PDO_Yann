@@ -3,7 +3,7 @@
 {% block container %}
 
 {% if Code_fournisseur %}
-  {% set action = 'Traitement_Modification_Fournisseur.php' %}
+  {% set action = 'Traitement_Modification_Fournisseur.php?id=' ~ Id_fournisseur %}
   {% set titre = 'Modifier un fournisseur' %}
 {% else %}
   {% set action = 'Traitement_Insertion_Fournisseur.php' %}

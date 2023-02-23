@@ -16,7 +16,7 @@ if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
     $connex = Connexion("MyDB2");
 
     try {
-        $requete = $connex->prepare("UPDATE `Livres` SET `Nom`=:titre,`Auteur`=:auteur,`Editeur`=:editeur,`Annee`=:annee,`NombreDePages`=:nbPages WHERE `ID`= :ID");
+        $requete = $connex->prepare("UPDATE `Livres` SET `Nom`= :titre,`Auteur`= :auteur,`Editeur`=:editeur,`Annee`=:annee,`NombreDePages`=:nbPages WHERE `ID`= :ID");
         $requete->bindValue(':titre', $titre);
         $requete->bindValue(':auteur', $auteur);
         $requete->bindValue(':editeur', $editeur);
@@ -24,6 +24,7 @@ if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
         $requete->bindValue(':nbPages', $nbPages);
         $requete->bindValue(':ID', $ID);
         $requete->execute();
+
         $obj = $requete->fetch(PDO::FETCH_OBJ);
     } catch (Exception $e) {
 
