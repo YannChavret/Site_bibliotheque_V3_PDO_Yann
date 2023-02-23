@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once "twig.php";
 include("page_de_connexion.php");
 
 $ID = $_GET['id'];
@@ -24,5 +26,3 @@ echo "alert('Suppression réussie')</script>";
 echo "<script type=\"text/javascript\">";
 echo "window.location.href='Affichage_Fournisseurs.php'";
 echo "</script>";
-
-include("header.php");

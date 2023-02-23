@@ -1,6 +1,7 @@
 <?php
+session_start();
+require_once "twig.php";
 include("page_de_connexion.php");
-include("header.php");
 
 if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
     $titre = ucwords(strtolower($_POST["ident"][0]));
@@ -38,5 +39,3 @@ if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
 echo "<script type=\"text/javascript\">";
 echo "window.location.href='Affichage_Livres.php'";
 echo "</script>";
-
-include("header.php");

@@ -1,6 +1,8 @@
 <?php
+session_start();
+require_once "twig.php";
 include("page_de_connexion.php");
-include("header.php");
+
 
 if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
     $codeF = ucwords(strtolower($_POST["ident"][0]));
@@ -34,6 +36,7 @@ if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
 
         echo "<script type=text/javascript>";
         echo "alert('Insertion impossible')</script>";
+        echo $e->getMessage();
         die;
     }
     echo "<script type=text/javascript>";
@@ -48,5 +51,3 @@ if (isset($_POST["ident"]) && !empty($_POST["ident"])) {
 echo "<script type=\"text/javascript\">";
 echo "window.location.href='Affichage_Fournisseurs.php'";
 echo "</script>";
-
-include("header.php");

@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% block container %}
+    
+
+<section style="min-height:calc(100vh - 112px)">
+    <div class="container p-3 mb-2 bg-white text-dark rounded my-4">
+
+        <form action="" method=post>
+            <h1 class="text-center">Consultation</h1>
+            <p>Entrez vos identifiants pour vous connecter :</p>
+
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Identifiant</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Email" name="login[]" placeholder="Saisissez votre identifiant" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" name="login[]" placeholder="Saisissez votre mot de passe" required>
+                </div>
+                <p class='text-danger'>{{authuser}}</p>
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <a class="btn btn-outline-primary" href="Formulaire_Inscription.php">Inscrivez-vous</a>
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}

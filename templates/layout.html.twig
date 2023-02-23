@@ -7,14 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+    
     <title>Bibliothèque</title>
 </head>
 
 <body class="bg-dark text-white">
-
-
-
 
     <nav class="navbar navbar-expand-lg  bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -38,7 +35,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="Affichage_Livres.php">Afficher les livres</a></li>
+                            {% if session.admin %}
                             <li><a class="dropdown-item" href="Formulaire_Insertion.php">Ajouter un livre</a></li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="Formulaire_Recherche.php">Rechercher un livre</a></li>
                         </ul>
                     </li>
@@ -48,18 +47,19 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="Affichage_Fournisseurs.php">Afficher les fournisseurs</a></li>
+                            {% if session.admin %}
                             <li><a class="dropdown-item" href="Formulaire_Insertion_Fournisseur.php">Ajouter un fournisseur</a></li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="Formulaire_Recherche_Fournisseur.php">Rechercher un fournisseur</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class=" nav-item nav-link active">
-                        Bienvenue <?php
-                                    session_start();
-                                    echo $_SESSION["prenom"] . " ";
-                                    echo $_SESSION["nom"];
-                                    ?>
+                        Bienvenue 
+                                    {{session.prenom }}
+                                    {{session.nom }}
+                    
                     </li>
                     <li class="nav-item ml-auto">
                         <a class="nav-link active " aria-current="page" href="Traitement_Deconnexion.php">Log out</a>
@@ -68,3 +68,21 @@
             </div>
         </div>
     </nav>
+    <section style="min-height:calc(100vh - 125px)">
+    
+        {% block container %}
+    {% endblock %}
+
+    </section>
+    <footer class="p-3 bg-primary bg-gradient text-emphasis-primary">
+        <!-- Copyright -->
+        <div class="text-center text-white">
+            © 2023 Copyright
+            <a class="text-white text-decoration-none" href="https://www.linkedin.com/in/yannchavret/"> Yann CHAVRET</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    
+    </body>
+    
+    </html>
